@@ -1,7 +1,7 @@
 # # # # # # # # # # # # # # # # # # # # # # # # # 
 #    TICTACTOE GAMEBOARD BUILT ON PYTHON 3      #
 #             Created By MRHRTZ                 #
-#                Made By <3                     #
+#              Made With <3                     #
 # # # # # # # # # # # # # # # # # # # # # # # # #
 
 import numpy, random, sys
@@ -19,7 +19,7 @@ constant = {
     'winner': f'{Fore.GREEN}Selamat game dimenangkan oleh ',
     'draw': f'{Fore.LIGHTYELLOW_EX}Kedudukan saat ini seri!',
     'exit': f'\n\n{Fore.LIGHTYELLOW_EX}Bye..\n{Style.RESET_ALL}',
-    'copyright': f'{Fore.CYAN}# # # # # # # # # # # # # # # # # # # # # # # # # \r\n#    TICTACTOE GAMEBOARD BUILT ON PYTHON 3      #\r\n#             Created By MRHRTZ                 #\r\n#                Made By <3                     #\r\n# # # # # # # # # # # # # # # # # # # # # # # # #{Fore.LIGHTWHITE_EX}\n\n'
+    'copyright': f'{Fore.CYAN}# # # # # # # # # # # # # # # # # # # # # # # # # \r\n#    TICTACTOE GAMEBOARD BUILT ON PYTHON 3      #\r\n#             Created By MRHRTZ                 #\r\n#              Made With <3                     #\r\n# # # # # # # # # # # # # # # # # # # # # # # # #{Fore.LIGHTWHITE_EX}\n\n'
 }
 
 def initGame():
@@ -116,7 +116,7 @@ def pointChecker(v_game):
 
     if nonzero == 9:
         v_game['isGameOver'] = True
-        v_game['winner'] = ''
+        v_game['winner'] = 'draw'
     
     return v_game
 
@@ -157,7 +157,7 @@ def gameFlows(v_game, readable):
             gameFlows(game, readable)
         else:
             if game['isGameOver']:
-                if not game['winner']:
+                if game['winner'] != 'draw':
                     win_str = f'{constant["winner"]} {"Player 1" if game["winner"] == "P1" else "Player 2"} {Style.RESET_ALL}\n\n'
                 else:
                     win_str = f'\n{constant["draw"]} {Style.RESET_ALL}\n\n'
